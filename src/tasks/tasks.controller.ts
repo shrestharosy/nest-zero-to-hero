@@ -11,6 +11,8 @@ import {
   Patch,
   Post,
   Query,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 
 @Controller('tasks')
@@ -18,6 +20,7 @@ export class TasksController {
   constructor(private taskService: TasksService) {}
 
   @Post()
+  @UsePipes(ValidationPipe)
   createTask(
     // @Body('title') title: string,
     // @Body('description') description: string,
